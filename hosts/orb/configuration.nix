@@ -23,6 +23,11 @@ with lib;
     gdb
   ];
 
+  users.users.jerrita = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
   system.stateVersion = "21.05";
 
   documentation.enable = true;
