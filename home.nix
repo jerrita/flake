@@ -3,7 +3,7 @@
     home = {
         username = "jerrita";
         homeDirectory = "/home/jerrita";
-        
+
         packages = with pkgs; [
             neofetch
             nnn
@@ -38,16 +38,16 @@
         zsh = {
             enable = true;
             enableAutosuggestions = true;
+            enableCompletion = true;
             shellAliases = {
                 k = "kubectl";
                 update = "sudo nixos-rebuild switch";
             };
-            ohMyZsh = {
+            oh-my-zsh = {
                 enable = true;
-                plugins = [ "git" "thefuck" ];
+                plugins = [ "git" "thefuck" "zsh-syntax-highlighting" ];
                 theme = "random";  # I am hentai
             };
-            syntaxHighlighting.enable = true;
         };
 
         home-manager.enable = true;

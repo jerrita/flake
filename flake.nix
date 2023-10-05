@@ -11,9 +11,10 @@
 
     outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
         inherit (self) outputs;
-    {
+    in {
         nixosConfigurations = {
             orb = nixpkgs.lib.nixosSystem {
+                system = "aarch64-linux";
                 specialArgs = {inherit inputs outputs;};
                 modules = [
                     ./hosts/orb/configuration.nix
