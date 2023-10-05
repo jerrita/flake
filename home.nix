@@ -2,7 +2,6 @@
 {
     home = {
         username = "jerrita";
-        homeDirectory = "/home/jerrita";
 
         packages = with pkgs; [
             neofetch

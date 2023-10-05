@@ -24,6 +24,8 @@ with lib;
     gdb
   ];
 
+  programs.zsh.enable = true;
+  programs.zsh.syntaxHighlighting.enable = true;
   users.users.jerrita = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
