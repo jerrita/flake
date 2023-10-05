@@ -21,6 +21,7 @@
             btop
             htop
             sysstat
+            thefuck
 
             nix-output-monitor
         ];
