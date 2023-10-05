@@ -20,6 +20,7 @@
             lsof
             strace
             btop
+            htop
             sysstat
 
             nix-output-monitor
@@ -43,9 +44,16 @@
                 k = "kubectl";
                 update = "sudo nixos-rebuild switch";
             };
+            zplug = {
+                enable = true;
+                plugins = [
+                    { name = "zsh-users/zsh-autosuggestions"; }
+                ];
+            };
+
             oh-my-zsh = {
                 enable = true;
-                plugins = [ "git" "thefuck" "zsh-syntax-highlighting" ];
+                plugins = [ "git" "thefuck" ];
                 theme = "random";  # I am hentai
             };
         };

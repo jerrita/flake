@@ -19,6 +19,7 @@ with lib;
     git
 
     gcc13
+    ninja
     cmake
     gdb
   ];
@@ -26,6 +27,7 @@ with lib;
   users.users.jerrita = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    shell = pkgs.zsh;
   };
 
   system.stateVersion = "21.05";
