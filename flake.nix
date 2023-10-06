@@ -13,11 +13,11 @@
         inherit (self) outputs;
     in {
         nixosConfigurations = {
-            orb = nixpkgs.lib.nixosSystem {
+            akari = nixpkgs.lib.nixosSystem {
                 system = "aarch64-linux";
                 specialArgs = {inherit inputs outputs;};
                 modules = [
-                    ./hosts/orb/configuration.nix
+                    ./hosts/akari/configuration.nix
 
                     home-manager.nixosModules.home-manager
                     {
