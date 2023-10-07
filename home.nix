@@ -11,6 +11,7 @@
         packages = with pkgs; [
             screenfetch
             vim
+            ranger
             
             mtr
             iperf3
