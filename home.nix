@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
     imports = [
-        ./services/vscode-ssh-fix.nix
+        ./services/nixos-vscode-ssh-fix.nix
     ];
 
     home = {
