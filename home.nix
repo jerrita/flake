@@ -5,8 +5,7 @@
         homeDirectory = "/home/jerrita";
 
         packages = with pkgs; [
-            neofetch
-            nnn
+            screenfetch
             vim
             
             mtr
@@ -19,7 +18,6 @@
             file
             lsof
             strace
-            btop
             htop
             sysstat
             thefuck

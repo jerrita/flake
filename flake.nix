@@ -13,18 +13,28 @@
         inherit (self) outputs;
     in {
         nixosConfigurations = {
-            akari = nixpkgs.lib.nixosSystem {
+            aris = nixpkgs.lib.nixosSystem {
                 system = "aarch64-linux";
                 specialArgs = {inherit inputs outputs;};
                 modules = [
-                    ./hosts/akari/configuration.nix
+                    ./hosts/aris/configuration.nix
+                ];
+            };
+        };
 
-                    home-manager.nixosModules.home-manager
-                    {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.jerrita = import ./home.nix;
-                    }
+        homeConfigurations = {
+            arm64 = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.aarch64-linux;
+                extraSpecialArgs = {inherit inputs outputs;};
+                modules = [
+                    ./home.nix
+                ];
+            };
+            x64 = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                extraSpecialArgs = {inherit inputs outputs;};
+                modules = [
+                    ./home.nix
                 ];
             };
         };
