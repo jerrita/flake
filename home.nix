@@ -22,6 +22,8 @@
             sysstat
             thefuck
 
+            pciutils
+
             nix-output-monitor
         ];
 
@@ -53,10 +55,11 @@
             oh-my-zsh = {
                 enable = true;
                 plugins = [ "git" "thefuck" ];
-                theme = "random";  # I am hentai
+                theme = "sonicradish";
             };
         };
 
         home-manager.enable = true;
+        command-not-found.enable = true;
     };
 }

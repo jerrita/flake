@@ -25,6 +25,7 @@
     vim
     git
     wget
+    home-manager
   ];
 
   services.openssh.enable = true;

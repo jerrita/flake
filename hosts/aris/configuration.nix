@@ -22,7 +22,11 @@
     shell = pkgs.zsh;
   };
 
+  security.sudo.wheelNeedsPassword = false;
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
   environment.systemPackages = with pkgs; [
+    home-manager
     vim
     wget
     git
