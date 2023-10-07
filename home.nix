@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+    imports = [
+        ./services/vscode-ssh-fix.nix
+    ];
+
     home = {
         username = "jerrita";
         homeDirectory = "/home/jerrita";
@@ -61,5 +65,9 @@
 
         home-manager.enable = true;
         command-not-found.enable = true;
+    };
+
+    services = {
+        vscode-ssh-fix.enable = true;
     };
 }
