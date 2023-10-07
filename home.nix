@@ -68,6 +68,6 @@
     };
 
     services = {
-        vscode-ssh-fix.enable = true;
+        nixos-vscode-ssh-fix.enable = true;
     };
 }
