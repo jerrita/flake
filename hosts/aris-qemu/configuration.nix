@@ -33,7 +33,7 @@
 
     gcc13
     cmake
-    make
+    ninja
     gdb
   ];
 
