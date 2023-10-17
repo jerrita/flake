@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-    environment.systemPackage = with pkgs; [
+    environment.systemPackages = with pkgs; [
         gcc13
         cmake
         gnumake
