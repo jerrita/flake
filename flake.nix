@@ -39,8 +39,8 @@
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = inputs;
-                        home-manager.users.jerrita = import ./home { hypr = true; };
+                        home-manager.extraSpecialArgs = { hypr = true; };
+                        home-manager.users.jerrita = import ./home;
                     }
                 ];
             };

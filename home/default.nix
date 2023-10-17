@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, hypr, ... }:
+let
+    hyprland = if (hypr) then [./hyprland] else [];
+in
 {
     imports = [
         ./programs
-        if (hypr) then ./hyprland else null
-    ];
+    ] ++ hyprland;
 
     home = {
         username = "jerrita";
