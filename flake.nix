@@ -34,15 +34,14 @@
                 specialArgs = {inherit inputs outputs;};
                 modules = [
                     ./hosts/aris
-                ];
 
-                home-manager.nixosModules.home-manager
-                {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.extraSpecialArgs = inputs;
-                    home-manager.users.jerrita = import ./home;
-                }
+                    home-manager.nixosModules.home-manager = {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.extraSpecialArgs = inputs;
+                        home-manager.users.jerrita = import ./home;
+                    }
+                ];
             };
         };
     };
