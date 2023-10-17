@@ -6,7 +6,15 @@
         waybar
         rofi-wayland-unwrapped
 
+        mesa
+
         toastify  # command line notifications
+        # alacritty
+        wezterm
+
+        # fonts
+        jetbrains-mono
+        font-awesome
     ];
 
     home.file.".config/hypr".source = ./config;

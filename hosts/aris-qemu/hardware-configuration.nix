@@ -8,10 +8,17 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "usbhid" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "virtio_net" "virtio_pci" "virtio_mmio" "virtio_blk" "virtio_scsi" "9p" "9pnet_virtio" ];
+  boot.initrd.kernelModules = [ "virtio_balloon" "virtio_console" "virtio_rng" ];
   boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+
+  boot.initrd.postDeviceCommands = lib.mkIf (!config.boot.initrd.systemd.enable)
+    ''
+      # Set the system time from the hardware clock to work around a
+      # bug in qemu-kvm > 1.5.2 (where the VM clock is initialised
+      # to the *boot time* of the host).
+      hwclock -s
+    '';
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/5801a001-360f-44a5-be01-1f91d1ce1303";
