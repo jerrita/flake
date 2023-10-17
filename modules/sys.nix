@@ -26,6 +26,12 @@
 
     security.sudo.wheelNeedsPassword = false;
     services.openssh.enable = true;
+    security.polkit.enable = true;
+
+    hardware.opengl = {
+        enable = true;
+        driSupport = true;
+    };
 
     programs.zsh.enable = true;
     programs.zsh.syntaxHighlighting.enable = true;

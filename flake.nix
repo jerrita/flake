@@ -44,6 +44,21 @@
                     }
                 ];
             };
+	    aris-qemu = nixpkgs.lib.nixosSystem {
+                system = "aarch64-linux";
+                specialArgs = {inherit inputs outputs;};
+                modules = [
+                    ./hosts/aris-qemu
+
+                    home-manager.nixosModules.home-manager
+                    {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.extraSpecialArgs = { hypr = true; };
+                        home-manager.users.jerrita = import ./home;
+                    }
+                ];
+            };
         };
     };
 }
