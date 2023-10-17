@@ -2,6 +2,7 @@
 {
     imports = [
         ./programs
+        if (hypr) then ./hyprland else null
     ];
 
     home = {

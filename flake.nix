@@ -40,7 +40,7 @@
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.extraSpecialArgs = inputs;
-                        home-manager.users.jerrita = import ./home;
+                        home-manager.users.jerrita = import ./home { hypr = true; };
                     }
                 ];
             };
