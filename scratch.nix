@@ -10,7 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "akari"; 
+  networking.hostName = "scratch"; 
   time.timeZone = "Asia/Shanghai";
 
   programs.zsh.enable = true;
