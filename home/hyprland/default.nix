@@ -24,5 +24,6 @@
     home.file.".config/waybar".source = ./waybar;
     home.file.".config/rofi".source = ./rofi;
     home.file.".config/ranger".source = ./ranger;
+    home.file.".config/ranger".recursive = true;
     home.file.".config/dunst".source = ./dunst;
 }
