@@ -6,20 +6,10 @@
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
-  "modules-left": [
-    "custom/launcher",
-    "hyprland/workspaces",
-    "custom/playerctl",
-    "custom/playerlabel"
-  ],
-  "modules-center": ["cpu", "memory", "disk"],
-  "modules-right": [
-    "tray",
-    "custom/randwall",
-    "network",
-    "pulseaudio",
-    "clock"
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["cpu", "memory", "disk", "temperature"],
+  "modules-right": ["tray", "network", "pulseaudio", "battery", "clock"],
+
   // Modules configuration
   "clock": {
     "format": " {:%H:%M}",
@@ -31,17 +21,12 @@
   "hyprland/workspaces": {
     "active-only": false,
     "all-outputs": true,
-    "disable-scroll": false,
+    "disable-scroll": true,
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
     "format": "{icon}",
     "on-click": "activate",
     "format-icons": {
-      //			"1": "一",
-      //			"2": "二",
-      //			"3": "三",
-      //			"4": "四",
-      //			"5": "五",
       "urgent": "",
       "active": "",
       "default": "󰧞",
@@ -49,35 +34,8 @@
     }
   },
 
-  "custom/playerctl": {
-    "format": "{icon}",
-    "return-type": "json",
-    "max-length": 64,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl play-pause",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "format-icons": {
-      "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-      "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-    }
-  },
-
-  "custom/playerlabel": {
-    "format": "<span>{}</span>",
-    "return-type": "json",
-    "max-length": 48,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click-middle": "playerctl play-pause",
-    "on-click": "playerctl previous",
-    "on-click-right": "playerctl next",
-    "format-icons": {
-      "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-      "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-    }
-  },
-
   "battery": {
+    "bat": "BAT0",
     "states": {
       "good": 95,
       "warning": 30,
@@ -87,8 +45,6 @@
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{icon} {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""]
   },
 
@@ -145,33 +101,15 @@
     "on-scroll-down": "bash ~/.scripts/volume down",
     "scroll-step": 5,
     "on-click-right": "pavucontrol"
-  },
-  "custom/randwall": {
-    "format": "󰏘",
-    "on-click": "bash $HOME/.config/hypr/randwall.sh",
-    "on-click-right": "bash $HOME/.config/hypr/wall.sh"
-  },
-  "custom/launcher": {
-    "format": "󰈸",
-    "on-click": "bash $HOME/.config/rofi/launcher.sh",
-    //    "on-click": "wofi --show drun -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css",
-    "on-click-right": "bash $HOME/.config/rofi/run.sh"
-    //    "on-click-right": "wofi --show run -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css"
-  },
-
-  "custom/wf-recorder": {
-    "format": "{}",
-    "interval": "once",
-    "exec": "echo ''",
-    "tooltip": "false",
-    "exec-if": "pgrep 'wf-recorder'",
-    "on-click": "exec ./scripts/wlrecord.sh",
-    "signal": 8
-  },
-
-  "custom/hyprpicker": {
-    "format": "󰈋",
-    "on-click": "hyprpicker -a -f hex",
-    "on-click-right": "hyprpicker -a -f rgb"
   }
+
+  // "custom/wf-recorder": {
+  //   "format": "{}",
+  //   "interval": "once",
+  //   "exec": "echo ''",
+  //   "tooltip": "false",
+  //   "exec-if": "pgrep 'wf-recorder'",
+  //   "on-click": "exec ./scripts/wlrecord.sh",
+  //   "signal": 8
+  // }
 }

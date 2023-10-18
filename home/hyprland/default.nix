@@ -29,4 +29,9 @@
     home.file.".config/ranger".source = ./ranger;
     home.file.".config/ranger".recursive = true;
     home.file.".config/dunst".source = ./dunst;
+    
+    home.file.".config/alacritty/alacritty.yml".text = ''
+    window:
+        opacity: 0.8
+    '';
 }
