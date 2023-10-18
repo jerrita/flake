@@ -4,7 +4,7 @@
     nixConfig = {
         experimental-features = [ "nix-command" "flakes" ];
         substituters = [
-            "https://repo.mirrors.cqupt.edu.cn/repository/nix-channels/store"
+            "https://mirrors.cqupt.edu.cn/nix-channels/store"
         ];
 
         # nix community's cache server
