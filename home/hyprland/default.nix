@@ -17,6 +17,9 @@
         # fonts
         jetbrains-mono
         font-awesome
+        iosevka
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
     ];
 
     home.file.".config/hypr".source = ./hypr;
