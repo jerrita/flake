@@ -20,6 +20,8 @@
         wget
         git
         sysstat
+        lshw
+        powertop
         lm_sensors
         screenfetch
     ];
@@ -40,7 +42,7 @@
         extraGroups = [ "wheel" ];
         shell = pkgs.zsh;
         openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINu+Alullj1Meq+a3KNFlIT9lU9YCb8WDr/mZhHCEPji jerrita@air"
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINu+Alullj1Meq+a3KNFlIT9lU9YCb8WDr/mZhHCEPji jerrita@mac-air"
         ];
     };
 }
