@@ -6,8 +6,6 @@
         waybar
         rofi-wayland-unwrapped
 
-        mesa
-
         toastify  # command line notifications
         # alacritty
         wezterm
