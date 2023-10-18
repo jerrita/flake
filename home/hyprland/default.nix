@@ -7,8 +7,9 @@
         rofi-wayland-unwrapped
 
         toastify  # command line notifications
-        # alacritty
-        wezterm
+        alacritty
+        # wezterm
+        thunar    # file manager
 
         # fonts
         jetbrains-mono
