@@ -9,7 +9,7 @@
         toastify  # command line notifications
         alacritty
         # wezterm
-        thunar    # file manager
+        xfce.thunar    # file manager
 
         # fonts
         jetbrains-mono
