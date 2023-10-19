@@ -1,11 +1,16 @@
 # Use for firsh install
-{ config, pkgs, ... }:
+# nixos-install --option substituters "https://mirrors.cqupt.edu.cn/nix-channels/store"
 
+{ config, pkgs, lib, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # ./modules/tunnel.nix
     ];
+
+  nix.settings.substituters = lib.mkForce [ "https://mirrors.cqupt.edu.cn/nix-channels/store" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -25,12 +30,9 @@
     vim
     git
     wget
-    home-manager
   ];
 
   services.openssh.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nix.settings.substituters = [ "https://mirrors.cqupt.edu.cn/nix-channels/store" ];
   system.stateVersion = "23.05";
 }
 

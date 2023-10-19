@@ -7,6 +7,7 @@
       ../../modules/nvidia.nix
       # ../../modules/prime.nix  # optimus, need busid first
       ../../modules/laptop.nix
+      ../../modules/tunnel.nix
       ./hardware-configuration.nix
     ];
 

@@ -1,6 +1,6 @@
 { pkgs, hypr, ... }:
 let
-    hyprland = if (hypr) then [./hyprland] else [];
+    hyprland = if (hypr) then [ ./hyprland ] else [];
 in
 {
     imports = [
