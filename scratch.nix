@@ -9,7 +9,7 @@
       # ./modules/tunnel.nix
     ];
 
-  nix.settings.substituters = lib.mkForce [ "https://mirrors.cqupt.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = lib.mkForce [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   boot.loader.systemd-boot.enable = true;

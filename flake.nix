@@ -4,16 +4,16 @@
     nixConfig = {
         experimental-features = [ "nix-command" "flakes" ];
         substituters = [
-            "https://mirrors.cqupt.edu.cn/nix-channels/store"
+            "https://mirrors.ustc.edu.cn/nix-channels/store"
         ];
 
         # nix community's cache server
-        extra-substituters = [
-            "https://nix-community.cachix.org"
-        ];
-        extra-trusted-public-keys = [
-            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
+        # extra-substituters = [
+        #     "https://nix-community.cachix.org"
+        # ];
+        # extra-trusted-public-keys = [
+        #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        # ];
     };
 
     inputs = {
@@ -30,7 +30,7 @@
     in {
         nixosConfigurations = {
             aris = nixpkgs.lib.nixosSystem {
-                system = "aarch64-linux";
+                system = "x86_64-linux";
                 specialArgs = {inherit inputs outputs;};
                 modules = [
                     ./hosts/aris
@@ -39,22 +39,22 @@
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = { hypr = true; };
+                        home-manager.extraSpecialArgs = { hypr = false; };
                         home-manager.users.jerrita = import ./home;
                     }
                 ];
             };
-	    aris-qemu = nixpkgs.lib.nixosSystem {
-                system = "aarch64-linux";
+            cloud = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
                 specialArgs = {inherit inputs outputs;};
                 modules = [
-                    ./hosts/aris-qemu
+                    ./hosts/cloud
 
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = { hypr = true; };
+                        home-manager.extraSpecialArgs = { hypr = false; };
                         home-manager.users.jerrita = import ./home;
                     }
                 ];

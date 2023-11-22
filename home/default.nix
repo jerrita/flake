@@ -1,4 +1,4 @@
-{ pkgs, hypr, ... }:
+{ pkgs, hypr, tunnel, ... }:
 let
     hyprland = if (hypr) then [ ./hyprland ] else [];
 in
