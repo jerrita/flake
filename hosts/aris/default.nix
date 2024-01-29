@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, ... }:
+{ config, pkgs, modulesPath, proxmoxLXC, ... }:
 {
   imports =
     [ # LXC
@@ -7,6 +7,10 @@
       ../../modules/ddns.nix
       ../../modules/k3s.nix
     ];
+
+  proxmoxLXC.privileged = true;
+  proxmoxLXC.manageNetwork = true;
+  networking.useDHCP = true;
 
   networking.hostName = "aris";
   system.stateVersion = "23.11";
