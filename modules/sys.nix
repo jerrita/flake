@@ -30,10 +30,10 @@
 
     programs.zsh.enable = true;
     programs.zsh.syntaxHighlighting.enable = true;
+    users.defaultUserShell = pkgs.zsh;
     users.users.jerrita = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
-        shell = pkgs.zsh;
         openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINu+Alullj1Meq+a3KNFlIT9lU9YCb8WDr/mZhHCEPji jerrita@mac-air"
         ];

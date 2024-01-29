@@ -5,5 +5,6 @@
         cmake
         gnumake
         gdb
+        python3
     ];
 }

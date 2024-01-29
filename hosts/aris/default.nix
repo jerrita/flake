@@ -1,16 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, modulesPath, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # LXC
+      (modulesPath + "/virtualisation/proxmox-lxc.nix")
       ../../modules/sys.nix
-      # ../../modules/dev.nix
-      ./hardware-configuration.nix
+      ../../modules/ddns.nix
+      ../../modules/k3s.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "aris";
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }

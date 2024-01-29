@@ -23,6 +23,7 @@
         ldns
         ipcalc
         iproute2
+        nload
 
         nix-output-monitor
     ];
