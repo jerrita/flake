@@ -1,7 +1,7 @@
-{ pkgs, hypr, waydroid, tunnel, ... }:
+{ pkgs, hypr, wd, tunnel, ... }:
 let
     hyprland = if (hypr) then [ ./hyprland ] else [];
-    waydroid = if (waydroid) then [ ./waydroid ] else [];
+    waydroid = if (wd) then [ ./waydroid ] else [];
 in
 {
     imports = [
