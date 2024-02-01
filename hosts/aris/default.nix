@@ -1,17 +1,21 @@
-{ config, pkgs, modulesPath, proxmoxLXC, ... }:
+{ config, pkgs, ... }:
 {
   imports =
-    [ # LXC
-      (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    [ # Include the results of the hardware scan.
       ../../modules/sys.nix
-      ../../modules/ddns.nix
-      ../../modules/k3s.nix
+      ./hardware-configuration.nix
     ];
 
-  proxmoxLXC.privileged = true;
-  proxmoxLXC.manageNetwork = true;
-  networking.useDHCP = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "aris";
+  hardware.opengl.enable = true;
+
+  virtualisation.docker.enable = true;
+  # virtualisation.waydroid.enable = true;
+
+  services.qemuGuest.enable = true;
   system.stateVersion = "23.11";
 }

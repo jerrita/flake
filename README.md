@@ -2,13 +2,6 @@
 
 My nix configurations. Use on your own risk.
 
-## Map
-
-| name  | note    |
-| ----- | ------- |
-| aris  | PVE LXC |
-| cloud | ECS     |
-
 ## Scripts
 
 1. LXC Template
