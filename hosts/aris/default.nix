@@ -14,7 +14,6 @@
   hardware.opengl.enable = true;
 
   virtualisation.docker.enable = true;
-  # virtualisation.waydroid.enable = true;
 
   services.qemuGuest.enable = true;
   system.stateVersion = "23.11";

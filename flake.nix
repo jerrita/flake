@@ -43,7 +43,7 @@
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.extraSpecialArgs = { hypr = false; };
+                        home-manager.extraSpecialArgs = { hypr = false; waydroid = true; };
                         home-manager.users.jerrita = import ./home;
                     }
                 ];
