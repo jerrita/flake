@@ -1,7 +1,4 @@
 { pkgs, droid, ... }: {
-    virtualisation.waydroid.enable = true;
-    programs.wayfire.enable = true;
-
     home.file.".config/wayfire.sh".text = ''
     #!/bin/sh
     wayfire &

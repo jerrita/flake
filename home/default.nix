@@ -1,12 +1,11 @@
 { pkgs, hypr, wd, tunnel, ... }:
 let
     hyprland = if (hypr) then [ ./hyprland ] else [];
-    waydroid = if (wd) then [ ./waydroid ] else [];
 in
 {
     imports = [
         ./programs
-    ] ++ hyprland ++ waydroid;
+    ] ++ hyprland;
 
     home = {
         username = "jerrita";
